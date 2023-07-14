@@ -14,7 +14,11 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/:catchall(.*)',
     name: 'not-found',
-    component: () => import('../views/NotFoundView.vue')
+    component: () => import('../views/NotFoundView.vue'),
+    meta: {
+      enterClass: 'animate__lightSpeedInRight',
+      leaveClass: 'animate__hinge'
+    }
   }
 ]
 
