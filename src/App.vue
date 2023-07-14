@@ -4,9 +4,18 @@
       <RouterLink to="/">
         <img src="./assets/logo-no-bg.png" />
       </RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/cv">Curriculum Vitae</RouterLink>
     </header>
     <main>
-      <RouterView />
+      <RouterView v-slot="{ Component }">
+        <Transition
+          mode="out-in" 
+          enter-active-class="animate__animated animate__zoomIn animate__faster"
+          leave-active-class="animate__animated animate__fadeOutUp animate__faster">
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
     </main>
     <footer>
       <small>Designed & Coded by Nick Domanti &copy; 2023</small>
@@ -15,6 +24,8 @@
 </template>
 
 <style scoped lang="scss">
+@import './assets/styles/vars';
+
 .nd-page {
   display: flex;
   flex-direction: column;
@@ -24,11 +35,29 @@
   header {
     background-color: black;
     color: white;
-    text-align: center;
-    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 2rem;
+
+    @media (min-width: $screen-md) {
+      justify-content: center;
+      gap: 3rem;
+    }
 
     img {
       height: 50px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      transition: transform 0.2s ease-out;
+
+      &:hover, &.router-link-active {
+        transform: scale(1.1);
+      }
     }
   }
 
