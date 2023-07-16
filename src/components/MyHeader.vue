@@ -1,6 +1,6 @@
 <template>
   <header>
-    <RouterLink to="/">
+    <RouterLink to="/" class="nd-logo-link">
       <img src="../assets/logo-no-bg.png" />
     </RouterLink>
     <RouterLink to="/about">About</RouterLink>
@@ -30,12 +30,26 @@ header {
   }
 
   a {
+    position: relative;
     color: white;
     text-decoration: none;
-    transition: transform 0.2s ease-out;
+
+    &:not(.nd-logo-link)::after {
+      content: '';
+      position: absolute;
+      display: block;
+      background-color: white;
+      height: 2px;
+      width: 100%;
+      margin-top: 5px;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
 
     &:hover, &.router-link-active {
-      transform: scale(1.1);
+      &::after {
+        opacity: 1;
+      }
     }
   }
 }

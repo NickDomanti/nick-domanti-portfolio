@@ -2,16 +2,20 @@
 
 import MyHeader from './components/MyHeader.vue'
 import MyFooter from './components/MyFooter.vue'
-import { RouteLocationNormalizedLoaded } from 'vue-router';
+import AnimateClass from './models/animate-class'
+import AnimateClassSpeed from './models/animate-class-speed'
+import { RouteLocationNormalizedLoaded } from 'vue-router'
 
-const getEnterClass = (route: RouteLocationNormalizedLoaded) : string => {
-  const ret = route.meta.enterClass as string ?? 'animate__zoomIn'
-  return `animate__animated ${ret}`
+const getEnterClass = (route: RouteLocationNormalizedLoaded) => {
+  const ret = route.meta.enterClass as AnimateClass
+    ?? new AnimateClass('animate__zoomIn', AnimateClassSpeed.Faster)
+  return ret.toString()
 }
 
-const getLeaveClass = (route: RouteLocationNormalizedLoaded) : string => {
-  const ret = route.meta.leaveClass as string ?? 'animate__fadeOutUp'
-  return `animate__animated ${ret}`
+const getLeaveClass = (route: RouteLocationNormalizedLoaded) => {
+  const ret = route.meta.leaveClass as AnimateClass
+    ?? new AnimateClass('animate__fadeOutUp', AnimateClassSpeed.Faster)
+  return ret.toString()
 }
 
 </script>
@@ -34,11 +38,13 @@ const getLeaveClass = (route: RouteLocationNormalizedLoaded) : string => {
 </template>
 
 <style scoped lang="scss">
+@import './assets/styles/vars';
+
 .nd-page {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  min-height: 100vh;
 
   main {
     padding: 1rem 5rem;

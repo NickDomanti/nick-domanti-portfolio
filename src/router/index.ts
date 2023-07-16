@@ -1,3 +1,5 @@
+import AnimateClass from '@/models/animate-class'
+import AnimateClassSpeed from '@/models/animate-class-speed'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
@@ -16,8 +18,8 @@ const routes: Array<RouteRecordRaw> = [
     name: 'not-found',
     component: () => import('../views/NotFoundView.vue'),
     meta: {
-      enterClass: 'animate__lightSpeedInRight',
-      leaveClass: 'animate__hinge'
+      enterClass: new AnimateClass('animate__bounceIn', AnimateClassSpeed.Faster),
+      leaveClass: new AnimateClass('animate__bounceOut', AnimateClassSpeed.Faster)
     }
   }
 ]
