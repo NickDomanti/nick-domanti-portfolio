@@ -45,9 +45,14 @@ const getLeaveClass = (route: RouteLocationNormalizedLoaded) => {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  transition: margin-left 0.5s;
 
   main {
-    padding: 1rem 5rem;
+    padding: 1rem 2rem;
+
+    @media (min-width: $screen-md) {
+      padding: 1rem 5rem;
+    }
   }
 }
 </style>
