@@ -1,22 +1,27 @@
 <script setup lang="ts">
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import OffCanvas from './OffCanvas.vue'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
+const isDesktop = breakpoints.isGreaterOrEqual('md')
+
+const emit = defineEmits(['expandOffCanvas'])
+
+const expandOffCanvas = () => {
+  console.log('expanding off-canvas')
+  emit('expandOffCanvas')
+}
 
 </script>
 
 <template>
   <header>
 
-    <OffCanvas />
-
     <div class="nd-header-left">
-      <a href="javascript:void(0)" class="nd-off-link">
+      <span class="nd-off-link" @click="expandOffCanvas">
         <FontAwesomeIcon :icon="['fas', 'bars-staggered']" />
-      </a>
+      </span>
     </div>
 
     <div class="nd-header-center">
@@ -25,12 +30,12 @@ const breakpoints = useBreakpoints(breakpointsTailwind)
       </RouterLink>
     </div>
     
-    <Teleport to=".nd-off-canvas" :disabled="breakpoints.isGreaterOrEqual('md')">
+    <div class="nd-header-right"></div>
+
+    <Teleport to=".nd-off-canvas" :disabled="isDesktop">
       <RouterLink to="/about" class="nd-header-link">About</RouterLink>
       <RouterLink to="/cv" class="nd-header-link">Curriculum Vitae</RouterLink>
     </Teleport>
-
-    <div class="nd-header-right"></div>
 
   </header>
 </template>
@@ -94,8 +99,6 @@ header {
   }
 
   .nd-header-right {
-    opacity: 0;
-
     @media (min-width: $screen-md) {
       display: none;
     }

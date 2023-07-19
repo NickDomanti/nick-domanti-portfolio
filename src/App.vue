@@ -4,6 +4,8 @@ import MyHeader from './components/MyHeader.vue'
 import MyFooter from './components/MyFooter.vue'
 import AnimateClass from './models/animate-class'
 import AnimateClassSpeed from './models/animate-class-speed'
+import OffCanvas from './components/OffCanvas.vue'
+import { ref } from 'vue'
 import { RouteLocationNormalizedLoaded } from 'vue-router'
 
 const getEnterClass = (route: RouteLocationNormalizedLoaded) => {
@@ -18,11 +20,14 @@ const getLeaveClass = (route: RouteLocationNormalizedLoaded) => {
   return ret.toString()
 }
 
+const offCanvasExpanded = ref(false)
+
 </script>
 
 <template>
   <div class="nd-page">
-    <MyHeader />
+    <OffCanvas :expanded="offCanvasExpanded" />
+    <MyHeader @expand-off-canvas="offCanvasExpanded = true" />
     <main>
       <RouterView v-slot="{ Component, route }">
         <Transition

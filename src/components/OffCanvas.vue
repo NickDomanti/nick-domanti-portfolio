@@ -1,5 +1,13 @@
+<script setup lang="ts">
+
+defineProps<{
+  expanded: boolean
+}>()
+
+</script>
+
 <template>
-  <div class="nd-off-canvas">
+  <div class="nd-off-canvas" :class="{ 'nd-off-canvas--expanded': expanded }">
 
   </div> 
 </template>
@@ -16,5 +24,9 @@
   overflow-x: hidden;
   padding-top: 60px;
   transition: 0.5s;
+
+  &--expanded {
+    width: auto;
+  }
 }
 </style>
