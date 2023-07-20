@@ -61,7 +61,7 @@ const offCanvasExpanded = ref(false)
   min-height: 100vh;
   transition: margin-left 0.5s;
   color: $clr-black;
-  background-color: $clr-white;
+  background-color: $clr-bg-white;
 
   main {
     padding: 1rem 2rem;

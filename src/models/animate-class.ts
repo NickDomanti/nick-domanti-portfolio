@@ -1,16 +1,13 @@
 import AnimateClassSpeed from './animate-class-speed'
 
 export default class AnimateClass {
-  private noAnimation: boolean;
-
   public constructor(
     public className?: string,
     public speed: AnimateClassSpeed = AnimateClassSpeed.Normal) {
-      this.noAnimation = className == null;
   }
 
   public toString() {
-    if (this.noAnimation) return '';
+    if (this.className == null) return '';
 
     const prefix = 'animate__animated'
 

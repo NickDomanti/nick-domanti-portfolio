@@ -10,19 +10,20 @@ html, body {
 
 .nd-nav-link {
   position: relative;
-  color: $clr-white;
+  color: $clr-black;
   text-decoration: none;
 
   &::after {
     content: '';
     position: absolute;
+    bottom: -5px;
     display: block;
-    background-color: $clr-white;
+    background-color: $clr-black;
     height: 2px;
     width: 100%;
-    margin-top: 5px;
     opacity: 0;
     transition: opacity 0.2s ease-out;
+    pointer-events: none;
   }
 
   &:hover, &.router-link-exact-active {

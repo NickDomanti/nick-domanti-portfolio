@@ -34,8 +34,6 @@ defineEmits(['showOffCanvas'])
 @import '../assets/styles/vars';
 
 header {
-  background-color: $clr-black;
-  color: $clr-white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
@@ -52,9 +50,6 @@ header {
   }
 
   a {
-    color: $clr-white;
-    text-decoration: none;
-
     &.nd-off-link {      
       @media (min-width: $screen-md) {
         display: none;
