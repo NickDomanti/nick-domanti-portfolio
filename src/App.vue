@@ -9,15 +9,15 @@ import { ref } from 'vue'
 import { RouteLocationNormalizedLoaded } from 'vue-router'
 
 const getEnterClass = (route: RouteLocationNormalizedLoaded) => {
-  const ret = route.meta.enterClass as AnimateClass
+  const animation = route.meta.enterClass as AnimateClass
     ?? new AnimateClass('animate__zoomIn', AnimateClassSpeed.Faster)
-  return ret.toString()
+  return animation.toString()
 }
 
 const getLeaveClass = (route: RouteLocationNormalizedLoaded) => {
-  const ret = route.meta.leaveClass as AnimateClass
+  const animation = route.meta.leaveClass as AnimateClass
     ?? new AnimateClass('animate__fadeOutUp', AnimateClassSpeed.Faster)
-  return ret.toString()
+  return animation.toString()
 }
 
 const offCanvasExpanded = ref(false)
