@@ -5,8 +5,8 @@ import MyFooter from './components/MyFooter.vue'
 import AnimateClass from './models/animate-class'
 import AnimateClassSpeed from './models/animate-class-speed'
 import OffCanvas from './components/OffCanvas.vue'
-import { ref } from 'vue'
-import { RouteLocationNormalizedLoaded } from 'vue-router'
+import { ref, watch } from 'vue'
+import { useRoute, RouteLocationNormalizedLoaded } from 'vue-router'
 
 const getEnterClass = (route: RouteLocationNormalizedLoaded) => {
   const animation = route.meta.enterClass as AnimateClass
@@ -19,6 +19,10 @@ const getLeaveClass = (route: RouteLocationNormalizedLoaded) => {
     ?? new AnimateClass('animate__fadeOutUp', AnimateClassSpeed.Faster)
   return animation.toString()
 }
+
+watch(useRoute(), () => {
+  offCanvasExpanded.value = false
+})
 
 const offCanvasExpanded = ref(false)
 
@@ -61,6 +65,8 @@ const offCanvasExpanded = ref(false)
 
   main {
     padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
 
     @media (min-width: $screen-md) {
       padding: 1rem 5rem;

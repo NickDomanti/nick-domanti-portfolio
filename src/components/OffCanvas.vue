@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import { useRoutes } from '@/composables/routes'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 defineProps<{
@@ -17,9 +18,22 @@ defineEmits(['hideOffCanvas'])
   </Transition>
 
   <div class="nd-off-canvas" :class="{ 'nd-off-canvas--expanded': expanded }">
-    <span class="nd-off-canvas-close" @click="$emit('hideOffCanvas')">
-      <FontAwesomeIcon :icon="['fas', 'angles-left']" />
-    </span>
+    <div class="nd-off-canvas-header">
+      <RouterLink to="/">
+        <img src="../assets/logo-no-bg.png" />
+      </RouterLink>
+      <div class="nd-off-canvas-close" @click="$emit('hideOffCanvas')">
+        <FontAwesomeIcon :icon="['fas', 'angles-left']" />
+      </div>
+    </div>
+    
+    <div class="nd-nav-link-wrapper" v-for="route in useRoutes()" :key="route.path">
+      <RouterLink :to="route.path" class="nd-nav-link">{{ route.name }}</RouterLink>
+    </div>
+    
+    <div class="nd-nav-link-wrapper">
+      <RouterLink to="/dsd" class="nd-nav-link">404</RouterLink>
+    </div>
   </div>
 
 </template>
@@ -27,17 +41,18 @@ defineEmits(['hideOffCanvas'])
 <style scoped lang="scss">
 @import '../assets/styles/vars';
 
-$transition: 0.2s ease-out;
+$transition: 0.3s ease-out;
 
 .nd-off-canvas {
   height: 100vh;
+  min-width: 50vw;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: $clr-black;
   color: $clr-white;
-  padding: 2rem;
+  padding: 1rem 2rem;
   overflow-x: hidden;
   transform: translateX(-100%);
   transition: transform $transition, box-shadow $transition;
@@ -45,6 +60,20 @@ $transition: 0.2s ease-out;
   &--expanded {
     transform: none;
     box-shadow: 12px 0px 20px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .nd-off-canvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    img {
+      height: 50px;
+    }
+  }
+
+  .nd-nav-link-wrapper {
+    margin: 1.5rem 0;
   }
 }
 

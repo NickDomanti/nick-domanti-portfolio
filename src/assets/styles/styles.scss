@@ -1,4 +1,4 @@
-@use '_vars';
+@import '_vars';
 
 html, body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -6,4 +6,28 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
   margin: 0;
+}
+
+.nd-nav-link {
+  position: relative;
+  color: $clr-white;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: $clr-white;
+    height: 2px;
+    width: 100%;
+    margin-top: 5px;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+  }
+
+  &:hover, &.router-link-exact-active {
+    &::after {
+      opacity: 1;
+    }
+  }
 }

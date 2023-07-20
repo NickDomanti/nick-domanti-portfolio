@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import { useRoutes } from '@/composables/routes'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 defineEmits(['showOffCanvas'])
@@ -23,8 +24,8 @@ defineEmits(['showOffCanvas'])
     
     <div class="nd-header-right"></div>
 
-    <RouterLink to="/about" class="nd-header-link">About</RouterLink>
-    <RouterLink to="/cv" class="nd-header-link">Curriculum Vitae</RouterLink>
+    <RouterLink v-for="route in useRoutes()" :key="route.path" :to="route.path" class="nd-nav-link">{{ route.name }}</RouterLink>
+    <RouterLink to="/dsd" class="nd-nav-link">404</RouterLink>
 
   </header>
 </template>
@@ -60,30 +61,11 @@ header {
       }
     }
 
-    &.nd-header-link {
-      position: relative;
+    &.nd-nav-link {
       display: none;
 
       @media (min-width: $screen-md) {
-        display: inline;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
         display: block;
-        background-color: $clr-white;
-        height: 2px;
-        width: 100%;
-        margin-top: 5px;
-        opacity: 0;
-        transition: opacity 0.2s ease-out;
-      }
-
-      &:hover, &.router-link-active {
-        &::after {
-          opacity: 1;
-        }
       }
     }
   }
