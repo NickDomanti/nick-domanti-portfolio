@@ -1,4 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons'
+import { faBarsStaggered, faAnglesLeft } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBarsStaggered)
+library.add(
+  faBarsStaggered,
+  faAnglesLeft
+)

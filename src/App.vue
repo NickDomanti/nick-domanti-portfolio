@@ -26,8 +26,11 @@ const offCanvasExpanded = ref(false)
 
 <template>
   <div class="nd-page">
-    <OffCanvas :expanded="offCanvasExpanded" />
-    <MyHeader @expand-off-canvas="offCanvasExpanded = true" />
+
+    <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
+
+    <MyHeader @show-off-canvas="offCanvasExpanded = true" />
+
     <main>
       <RouterView v-slot="{ Component, route }">
         <Transition
@@ -38,7 +41,9 @@ const offCanvasExpanded = ref(false)
         </Transition>
       </RouterView>
     </main>
+
     <MyFooter />
+    
   </div>
 </template>
 
@@ -51,6 +56,8 @@ const offCanvasExpanded = ref(false)
   justify-content: space-between;
   min-height: 100vh;
   transition: margin-left 0.5s;
+  color: $clr-black;
+  background-color: $clr-white;
 
   main {
     padding: 1rem 2rem;

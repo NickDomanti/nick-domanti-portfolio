@@ -1,17 +1,8 @@
 <script setup lang="ts">
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const isDesktop = breakpoints.isGreaterOrEqual('md')
-
-const emit = defineEmits(['expandOffCanvas'])
-
-const expandOffCanvas = () => {
-  console.log('expanding off-canvas')
-  emit('expandOffCanvas')
-}
+defineEmits(['showOffCanvas'])
 
 </script>
 
@@ -19,7 +10,7 @@ const expandOffCanvas = () => {
   <header>
 
     <div class="nd-header-left">
-      <span class="nd-off-link" @click="expandOffCanvas">
+      <span class="nd-off-link" @click="$emit('showOffCanvas')">
         <FontAwesomeIcon :icon="['fas', 'bars-staggered']" />
       </span>
     </div>
@@ -32,10 +23,8 @@ const expandOffCanvas = () => {
     
     <div class="nd-header-right"></div>
 
-    <Teleport to=".nd-off-canvas" :disabled="isDesktop">
-      <RouterLink to="/about" class="nd-header-link">About</RouterLink>
-      <RouterLink to="/cv" class="nd-header-link">Curriculum Vitae</RouterLink>
-    </Teleport>
+    <RouterLink to="/about" class="nd-header-link">About</RouterLink>
+    <RouterLink to="/cv" class="nd-header-link">Curriculum Vitae</RouterLink>
 
   </header>
 </template>
@@ -44,8 +33,8 @@ const expandOffCanvas = () => {
 @import '../assets/styles/vars';
 
 header {
-  background-color: black;
-  color: white;
+  background-color: $clr-black;
+  color: $clr-white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
@@ -62,7 +51,7 @@ header {
   }
 
   a {
-    color: white;
+    color: $clr-white;
     text-decoration: none;
 
     &.nd-off-link {      
@@ -73,12 +62,17 @@ header {
 
     &.nd-header-link {
       position: relative;
+      display: none;
+
+      @media (min-width: $screen-md) {
+        display: inline;
+      }
 
       &::after {
         content: '';
         position: absolute;
         display: block;
-        background-color: white;
+        background-color: $clr-white;
         height: 2px;
         width: 100%;
         margin-top: 5px;
@@ -98,7 +92,7 @@ header {
     text-align: center;
   }
 
-  .nd-header-right {
+  .nd-header-left, .nd-header-right {
     @media (min-width: $screen-md) {
       display: none;
     }
