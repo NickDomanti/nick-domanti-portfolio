@@ -24,7 +24,18 @@ defineEmits(['showOffCanvas'])
     </div>
 
     <RouterLink v-for="route in useRoutes()" :key="route.path" :to="route.path" class="nd-nav-link">{{ route.name }}</RouterLink>
-    <RouterLink to="/dsd" class="nd-nav-link">404</RouterLink>
+    <a class="nd-nav-link nd-nav-link--icon"
+      href="https://github.com/NickDomanti/nick-domanti-portfolio"
+      title="See this website's source code"
+      target="_blank">
+      <FontAwesomeIcon :icon="['fab', 'github']" />
+    </a>
+    <a class="nd-nav-link nd-nav-link--icon"
+      href="https://www.linkedin.com/in/nicol%C3%B2-domanti-11624b229/"
+      title="See my LinkedIn profile"
+      target="_blank">
+      <FontAwesomeIcon :icon="['fab', 'linkedin']" />
+    </a>
 
     <div class="nd-header-right">
       <ThemeSwitcher />
@@ -52,19 +63,17 @@ header {
     height: 50px;
   }
 
-  a {
-    &.nd-off-link {      
-      @media (min-width: $screen-md) {
-        display: none;
-      }
-    }
-
-    &.nd-nav-link {
+  .nd-off-link {      
+    @media (min-width: $screen-md) {
       display: none;
+    }
+  }
 
-      @media (min-width: $screen-md) {
-        display: block;
-      }
+  .nd-nav-link {
+    display: none;
+
+    @media (min-width: $screen-md) {
+      display: block;
     }
   }
 

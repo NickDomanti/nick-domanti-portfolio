@@ -32,7 +32,21 @@ defineEmits(['hideOffCanvas'])
     </div>
     
     <div class="nd-nav-link-wrapper">
-      <RouterLink to="/dsd" class="nd-nav-link">404</RouterLink>
+      <a class="nd-nav-link nd-nav-link--icon"
+        href="https://github.com/NickDomanti/nick-domanti-portfolio"
+        title="See this website's source code"
+        target="_blank">
+        <FontAwesomeIcon :icon="['fab', 'github']" />
+      </a>
+    </div>
+    
+    <div class="nd-nav-link-wrapper">
+      <a class="nd-nav-link nd-nav-link--icon"
+        href="https://www.linkedin.com/in/nicol%C3%B2-domanti-11624b229/"
+        title="See my LinkedIn profile"
+        target="_blank">
+        <FontAwesomeIcon :icon="['fab', 'linkedin']" />
+      </a>
     </div>
   </div>
 
