@@ -31,7 +31,7 @@ const uiSettings = useUiSettingsStore()
 </script>
 
 <template>
-  <div class="nd-page" :class="uiSettings.useDarkTheme ? 'nd-page--dark' : 'nd-page--light'">
+  <div class="nd-page" :class="'nd-page--' + uiSettings.getTheme()">
 
     <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
 
