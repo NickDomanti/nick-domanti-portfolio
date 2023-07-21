@@ -1,7 +1,9 @@
 <script setup lang="ts">
+
 import { useUiSettingsStore } from '@/stores/ui-settings'
 
 const uiSettings = useUiSettingsStore()
+
 </script>
 
 <template>

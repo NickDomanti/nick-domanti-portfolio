@@ -20,7 +20,7 @@ defineEmits(['hideOffCanvas'])
   <div class="nd-off-canvas" :class="{ 'nd-off-canvas--expanded': expanded }">
     <div class="nd-off-canvas-header">
       <RouterLink to="/">
-        <img src="../assets/logo-no-bg.png" />
+        <img src="@/assets/logo-no-bg.png" />
       </RouterLink>
       <div class="nd-off-canvas-close" @click="$emit('hideOffCanvas')">
         <FontAwesomeIcon :icon="['fas', 'angles-left']" />
