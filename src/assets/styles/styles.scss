@@ -12,6 +12,7 @@ html, body {
   position: relative;
   color: var(--clr);
   text-decoration: none;
+  transition: color $theme-transition;
 
   &::after {
     content: '';

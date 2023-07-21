@@ -26,12 +26,12 @@ watch(useRoute(), () => {
 })
 
 const offCanvasExpanded = ref(false)
-const uiSettingsStore = useUiSettingsStore()
+const uiSettings = useUiSettingsStore()
 
 </script>
 
 <template>
-  <div class="nd-page" :class="uiSettingsStore.useDarkTheme ? 'nd-page--dark' : 'nd-page--light'">
+  <div class="nd-page" :class="uiSettings.useDarkTheme ? 'nd-page--dark' : 'nd-page--light'">
 
     <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
 
@@ -64,6 +64,8 @@ const uiSettingsStore = useUiSettingsStore()
   color: var(--clr);
   background-color: var(--clr-bg);
 
+  transition: color $theme-transition, background-color $theme-transition;
+
   &--dark {
     --clr: var(--clr-white);
     --clr-bg: var(--clr-bg-black);
@@ -85,4 +87,3 @@ const uiSettingsStore = useUiSettingsStore()
   }
 }
 </style>
-./stores/ui-settings
