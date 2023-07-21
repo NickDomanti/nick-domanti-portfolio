@@ -2,12 +2,17 @@
 import { useUiSettingsStore } from '@/stores/ui-settings'
 
 const uiSettings = useUiSettingsStore()
+
+const switchTheme = () => {
+  uiSettings.useDarkTheme = !uiSettings.useDarkTheme
+  uiSettings.getThemeFromStorage = true
+}
 </script>
 
 <template>
   <div class="nd-theme-switcher"
     :class="uiSettings.useDarkTheme ? 'nd-theme-switcher--dark' : 'nd-theme-switcher--light'"
-    @click="uiSettings.useDarkTheme = !uiSettings.useDarkTheme">
+    @click="switchTheme">
     <div class="nd-theme-switcher-inner"></div>
   </div>
 </template>
