@@ -2,6 +2,7 @@
 
 import { useRoutes } from '@/composables/routes'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import ThemeSwitcher from '@/components/ThemeSwitcher.vue'
 
 defineEmits(['showOffCanvas'])
 
@@ -21,11 +22,13 @@ defineEmits(['showOffCanvas'])
         <img src="../assets/logo-no-bg.png" />
       </RouterLink>
     </div>
-    
-    <div class="nd-header-right"></div>
 
     <RouterLink v-for="route in useRoutes()" :key="route.path" :to="route.path" class="nd-nav-link">{{ route.name }}</RouterLink>
     <RouterLink to="/dsd" class="nd-nav-link">404</RouterLink>
+
+    <div class="nd-header-right">
+      <ThemeSwitcher />
+    </div>
 
   </header>
 </template>
@@ -65,14 +68,14 @@ header {
     }
   }
 
-  .nd-header-center {
-    text-align: center;
-  }
-
-  .nd-header-left, .nd-header-right {
+  .nd-header-left {
     @media (min-width: $screen-md) {
       display: none;
     }
+  }
+
+  .nd-header-center {
+    text-align: center;
   }
 }
 </style>

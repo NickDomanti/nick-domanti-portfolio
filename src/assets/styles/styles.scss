@@ -10,7 +10,7 @@ html, body {
 
 .nd-nav-link {
   position: relative;
-  color: $clr-black;
+  color: var(--clr);
   text-decoration: none;
 
   &::after {
@@ -18,7 +18,7 @@ html, body {
     position: absolute;
     bottom: -5px;
     display: block;
-    background-color: $clr-black;
+    background-color: var(--clr);
     height: 2px;
     width: 100%;
     opacity: 0;

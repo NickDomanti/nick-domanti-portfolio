@@ -39,8 +39,6 @@ defineEmits(['hideOffCanvas'])
 </template>
 
 <style scoped lang="scss">
-@import '../assets/styles/vars';
-
 $transition: 0.3s ease-out;
 
 .nd-off-canvas {
@@ -50,8 +48,8 @@ $transition: 0.3s ease-out;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: $clr-bg-white;
-  color: $clr-black;
+  background-color: var(--clr-bg);
+  color: var(--clr);
   padding: 1rem 2rem;
   overflow-x: hidden;
   transform: translateX(-100%);
@@ -84,7 +82,7 @@ $transition: 0.3s ease-out;
   left: 0;
   position: fixed;
   z-index: 1;
-  background-color: $clr-black;
+  background-color: black;
   opacity: 0.5;
   transition: opacity $transition;
 

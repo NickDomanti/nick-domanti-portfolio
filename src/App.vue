@@ -1,12 +1,13 @@
 <script setup lang="ts">
 
-import MyHeader from './components/MyHeader.vue'
-import MyFooter from './components/MyFooter.vue'
-import AnimateClass from './models/animate-class'
-import AnimateClassSpeed from './models/animate-class-speed'
-import OffCanvas from './components/OffCanvas.vue'
+import MyHeader from '@/components/MyHeader.vue'
+import MyFooter from '@/components/MyFooter.vue'
+import AnimateClass from '@/models/animate-class'
+import AnimateClassSpeed from '@/models/animate-class-speed'
+import OffCanvas from '@/components/OffCanvas.vue'
 import { ref, watch } from 'vue'
 import { useRoute, RouteLocationNormalizedLoaded } from 'vue-router'
+import { useUiStore } from './stores/ui'
 
 const getEnterClass = (route: RouteLocationNormalizedLoaded) => {
   const animation = route.meta.enterClass as AnimateClass
@@ -25,11 +26,12 @@ watch(useRoute(), () => {
 })
 
 const offCanvasExpanded = ref(false)
+const uiStore = useUiStore()
 
 </script>
 
 <template>
-  <div class="nd-page">
+  <div class="nd-page" :class="uiStore.useDarkTheme ? 'nd-page--dark' : 'nd-page--light'">
 
     <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
 
@@ -59,9 +61,18 @@ const offCanvasExpanded = ref(false)
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  transition: margin-left 0.5s;
-  color: $clr-black;
-  background-color: $clr-bg-white;
+  color: var(--clr);
+  background-color: var(--clr-bg);
+
+  &--dark {
+    --clr: var(--clr-white);
+    --clr-bg: var(--clr-bg-black);
+  }
+
+  &--light {
+    --clr: var(--clr-black);
+    --clr-bg: var(--clr-bg-white);
+  }
 
   main {
     padding: 1rem 2rem;
