@@ -7,7 +7,7 @@ import AnimateClassSpeed from '@/models/animate-class-speed'
 import OffCanvas from '@/components/OffCanvas.vue'
 import { ref, watch } from 'vue'
 import { useRoute, RouteLocationNormalizedLoaded } from 'vue-router'
-import { useUiStore } from './stores/ui'
+import { useUiSettingsStore } from './stores/ui-settings'
 
 const getEnterClass = (route: RouteLocationNormalizedLoaded) => {
   const animation = route.meta.enterClass as AnimateClass
@@ -26,12 +26,12 @@ watch(useRoute(), () => {
 })
 
 const offCanvasExpanded = ref(false)
-const uiStore = useUiStore()
+const uiSettingsStore = useUiSettingsStore()
 
 </script>
 
 <template>
-  <div class="nd-page" :class="uiStore.useDarkTheme ? 'nd-page--dark' : 'nd-page--light'">
+  <div class="nd-page" :class="uiSettingsStore.useDarkTheme ? 'nd-page--dark' : 'nd-page--light'">
 
     <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
 
@@ -85,3 +85,4 @@ const uiStore = useUiStore()
   }
 }
 </style>
+./stores/ui-settings

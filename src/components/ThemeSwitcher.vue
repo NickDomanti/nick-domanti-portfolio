@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useUiStore } from '@/stores/ui'
+import { useUiSettingsStore } from '@/stores/ui-settings'
 
-const uiStore = useUiStore()
+const uiSettingsStore = useUiSettingsStore()
 </script>
 
 <template>
   <div class="nd-theme-switcher"
-    :class="uiStore.useDarkTheme ? 'nd-theme-switcher--dark' : 'nd-theme-switcher--light'"
-    @click="uiStore.useDarkTheme = !uiStore.useDarkTheme">
+    :class="uiSettingsStore.useDarkTheme ? 'nd-theme-switcher--dark' : 'nd-theme-switcher--light'"
+    @click="uiSettingsStore.useDarkTheme = !uiSettingsStore.useDarkTheme">
     <div class="nd-theme-switcher-inner"></div>
   </div>
 </template>
@@ -49,4 +49,4 @@ $transition: 0.2s ease-out;
     }
   }
 }
-</style>
+</style>@/stores/ui-settings
