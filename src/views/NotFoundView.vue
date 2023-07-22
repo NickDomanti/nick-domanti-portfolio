@@ -1,8 +1,16 @@
+<script setup lang="ts">
+import AnimateAppear from '@/components/AnimateAppear.vue'
+</script>
+
 <template>
   <div class="nd-not-found">
 
-    <h1>Error 404</h1>
-    <p>Page not found</p>
+    <AnimateAppear animation="bounceIn">
+      <div>
+        <h1>Error 404</h1>
+        <p>Page not found</p>
+      </div>
+    </AnimateAppear>
     
   </div>
 </template>

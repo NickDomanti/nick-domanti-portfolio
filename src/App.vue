@@ -7,8 +7,8 @@ import AnimateAppear from '@/components/AnimateAppear.vue'
 import AnimateClass from './models/animate-class'
 import AnimateClassSpeed from '@/models/animate-class-speed'
 import { ref, watch } from 'vue'
-import { useUiSettingsStore } from '@/stores/ui-settings'
 import { useRoute } from 'vue-router'
+import { useUiSettingsStore } from '@/stores/ui-settings'
 
 const offCanvasExpanded = ref(false)
 watch(useRoute(), () => {
