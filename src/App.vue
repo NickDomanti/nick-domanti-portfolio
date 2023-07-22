@@ -5,9 +5,9 @@ import MyFooter from '@/components/MyFooter.vue'
 import AnimateClass from '@/models/animate-class'
 import AnimateClassSpeed from '@/models/animate-class-speed'
 import OffCanvas from '@/components/OffCanvas.vue'
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute, RouteLocationNormalizedLoaded } from 'vue-router'
-import { useUiSettingsStore } from './stores/ui-settings'
+import { useUiSettingsStore } from '@/stores/ui-settings'
 
 const getEnterClass = (route: RouteLocationNormalizedLoaded) => {
   const animation = route.meta.enterClass as AnimateClass
@@ -21,12 +21,14 @@ const getLeaveClass = (route: RouteLocationNormalizedLoaded) => {
   return animation.toString()
 }
 
+const offCanvasExpanded = ref(false)
 watch(useRoute(), () => {
   offCanvasExpanded.value = false
 })
 
-const offCanvasExpanded = ref(false)
 const uiSettings = useUiSettingsStore()
+const headerTransition = new AnimateClass('animate__fadeInDown', AnimateClassSpeed.Faster)
+const footerTransition = new AnimateClass('animate__fadeInUp', AnimateClassSpeed.Faster)
 
 </script>
 
@@ -35,7 +37,9 @@ const uiSettings = useUiSettingsStore()
 
     <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
 
-    <MyHeader @show-off-canvas="offCanvasExpanded = true" />
+    <Transition appear :enter-active-class="headerTransition.toString()">
+      <MyHeader @show-off-canvas="offCanvasExpanded = true" />
+    </Transition>
 
     <main>
       <RouterView v-slot="{ Component, route }">
@@ -48,13 +52,15 @@ const uiSettings = useUiSettingsStore()
       </RouterView>
     </main>
 
-    <MyFooter />
+    <Transition appear :enter-active-class="footerTransition.toString()">
+      <MyFooter />
+    </Transition>
     
   </div>
 </template>
 
 <style scoped lang="scss">
-@import './assets/styles/vars';
+@import '@/assets/styles/vars';
 
 .nd-page {
   display: flex;
