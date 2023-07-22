@@ -2,11 +2,15 @@
 <html lang="">
   <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-    <link rel="stylesheet" href="styles.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
 
     <title>Nick Domanti</title>
 
@@ -17,15 +21,9 @@
     </noscript>
     <div id="app">
       <div class="nd-loading">
-        <img src="/logo-no-bg.png" />
-        <h1>Welcome ;)</h1>
-        <p>The website is loading...</p>
+        <img src="/logo-no-bg.png" class="nd-rotating" />
       </div>
-      <script>
-        let theme = localStorage.getItem('nd-uiSettings-theme') || 'auto'
-        if (theme === 'auto') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-        document.querySelector('.nd-loading').classList.add('nd-loading--' + theme)
-      </script>
+      <script src="/loading.js"></script>
     </div>
   </body>
 </html>

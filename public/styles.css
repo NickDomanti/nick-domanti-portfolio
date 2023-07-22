@@ -32,16 +32,29 @@ html, body {
 }
 
 .nd-loading img {
-  height: 100px;
+  width: 20%;
+}
+
+.nd-loading img.nd-rotating {
   animation: nd-loading-spin 2s cubic-bezier(1, 0, 0.5, 1) infinite;
 }
 
-.nd-loading h1 {
-  margin: 2rem 0;
+@media (min-width: 640px) {
+  .nd-loading img {
+    width: 10%;
+  }
 }
 
-.nd-loading p {
-  margin: 0;
+@media (min-width: 1024px) {
+  .nd-loading img {
+    width: 7.5%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .nd-loading img {
+    width: 5%;
+  }
 }
 
 @keyframes nd-loading-spin {
