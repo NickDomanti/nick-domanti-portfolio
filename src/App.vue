@@ -4,6 +4,7 @@ import MyHeader from '@/components/MyHeader.vue'
 import MyFooter from '@/components/MyFooter.vue'
 import OffCanvas from '@/components/OffCanvas.vue'
 import AnimateAppear from '@/components/AnimateAppear.vue'
+import AnimateClass from './models/animate-class'
 import AnimateClassSpeed from '@/models/animate-class-speed'
 import { ref, watch } from 'vue'
 import { useUiSettingsStore } from '@/stores/ui-settings'
@@ -23,15 +24,19 @@ const uiSettings = useUiSettingsStore()
 
     <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
 
-    <AnimateAppear animation="fadeInDown" :speed="AnimateClassSpeed.Faster">
+    <AnimateAppear animation="slideInDown" :speed="AnimateClassSpeed.Faster" dont-animate-disappear>
       <MyHeader @show-off-canvas="offCanvasExpanded = true" />
     </AnimateAppear>
 
     <main>
-      <RouterView />
+      <RouterView v-slot="{ Component }">
+        <Transition mode="out-in" :leave-active-class="new AnimateClass('fadeOut', AnimateClassSpeed.Faster).toString()">
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
     </main>
 
-    <AnimateAppear animation="fadeInUp" :speed="AnimateClassSpeed.Faster">
+    <AnimateAppear animation="slideInUp" :speed="AnimateClassSpeed.Faster" dont-animate-disappear>
       <MyFooter />
     </AnimateAppear>
     

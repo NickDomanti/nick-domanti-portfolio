@@ -5,10 +5,10 @@ import AnimateAppear from '@/components/AnimateAppear.vue'
 <template>
   <div class="nd-home">
     
-    <AnimateAppear animation="backInDown">
+    <AnimateAppear animation="zoomInDown">
       <h1>Hi, I'm Nick</h1>
     </AnimateAppear>
-    <AnimateAppear animation="backInUp">
+    <AnimateAppear animation="zoomInUp">
       <p>Welcome to my website</p>
     </AnimateAppear>
 
