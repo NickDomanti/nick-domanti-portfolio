@@ -1,5 +1,7 @@
 <script setup lang="ts">
+
 import AnimateAppear from '@/components/AnimateAppear.vue'
+
 </script>
 
 <template>
@@ -8,7 +10,7 @@ import AnimateAppear from '@/components/AnimateAppear.vue'
     <AnimateAppear animation="zoomInDown">
       <h1>Hi, I'm Nick</h1>
     </AnimateAppear>
-    <AnimateAppear animation="zoomInUp">
+    <AnimateAppear animation="zoomInUp" delay="0.5s">
       <p>Welcome to my website</p>
     </AnimateAppear>
 
