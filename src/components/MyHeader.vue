@@ -19,7 +19,7 @@ defineEmits(['showOffCanvas'])
 
     <div class="nd-header-center">
       <RouterLink to="/" class="nd-logo-link">
-        <img src="@/assets/logo-no-bg.png" />
+        <img src="/logo-no-bg.png" />
       </RouterLink>
     </div>
 

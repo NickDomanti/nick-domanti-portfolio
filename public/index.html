@@ -13,14 +13,19 @@
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>This website requires JavaScript to run. Please enable it.</strong>
     </noscript>
     <div id="app">
       <div class="nd-loading">
+        <img src="/logo-no-bg.png" />
         <h1>Welcome ;)</h1>
         <p>The website is loading...</p>
       </div>
+      <script>
+        let theme = localStorage.getItem('nd-uiSettings-theme') || 'auto'
+        if (theme === 'auto') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.querySelector('.nd-loading').classList.add('nd-loading--' + theme)
+      </script>
     </div>
-    <!-- built files will be auto injected -->
   </body>
 </html>

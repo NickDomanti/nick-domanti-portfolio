@@ -1,3 +1,10 @@
+:root {
+  --clr-black: #0f0f0f;
+  --clr-white: #f1f1f1;
+  --clr-bg-black: #0f0f0f;
+  --clr-bg-white: #fff;
+}
+
 html, body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -12,4 +19,37 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.nd-loading--dark {
+  color: var(--clr-white);
+  background-color: var(--clr-bg-black);
+}
+
+.nd-loading--light {
+  color: var(--clr-black);
+  background-color: var(--clr-bg-white);
+}
+
+.nd-loading img {
+  height: 100px;
+  animation: nd-loading-spin 2s cubic-bezier(1, 0, 0.5, 1) infinite;
+}
+
+.nd-loading h1 {
+  margin: 2rem 0;
+}
+
+.nd-loading p {
+  margin: 0;
+}
+
+@keyframes nd-loading-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
