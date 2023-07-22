@@ -14,10 +14,17 @@ withDefaults(defineProps<Props>(), {
   delay: '0s'
 })
 
+defineEmits<{
+  (event: 'after-appear', el: Element): void
+}>()
+
 </script>
 
 <template>
-  <Transition appear :enter-active-class="new AnimateClass(animation, speed).toString()">
+  <Transition
+    appear
+    :enter-active-class="new AnimateClass(animation, speed).toString()"
+    @after-appear="el => $emit('after-appear', el)">
     <div class="nd-appear-animated">
       <slot></slot>
     </div>
