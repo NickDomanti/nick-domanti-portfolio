@@ -24,7 +24,7 @@ const uiSettings = useUiSettingsStore()
 
     <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
 
-    <AnimateAppear animation="slideInDown" :speed="AnimateClassSpeed.Faster" dont-animate-disappear>
+    <AnimateAppear animation="slideInDown" :speed="AnimateClassSpeed.Faster">
       <MyHeader @show-off-canvas="offCanvasExpanded = true" />
     </AnimateAppear>
 
@@ -36,7 +36,7 @@ const uiSettings = useUiSettingsStore()
       </RouterView>
     </main>
 
-    <AnimateAppear animation="slideInUp" :speed="AnimateClassSpeed.Faster" dont-animate-disappear>
+    <AnimateAppear animation="slideInUp" :speed="AnimateClassSpeed.Faster">
       <MyFooter />
     </AnimateAppear>
     
