@@ -1,8 +1,16 @@
+<script setup lang="ts">
+import AnimateAppear from '@/components/AnimateAppear.vue'
+</script>
+
 <template>
   <div class="nd-home">
     
-    <h1>Hi, I'm Nick</h1>
-    <p>Welcome to my website</p>
+    <AnimateAppear animation="backInDown">
+      <h1>Hi, I'm Nick</h1>
+    </AnimateAppear>
+    <AnimateAppear animation="backInUp">
+      <p>Welcome to my website</p>
+    </AnimateAppear>
 
   </div>
 </template>

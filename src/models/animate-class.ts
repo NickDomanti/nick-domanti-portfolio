@@ -9,15 +9,15 @@ export default class AnimateClass {
   public toString() {
     if (this.className == null) return '';
 
-    const prefix = 'animate__animated'
+    const prefix = 'animate__animated animate__'
 
     switch (this.speed) {
       case AnimateClassSpeed.Faster:
-        return `${prefix} ${this.className} animate__faster`
+        return `${prefix}${this.className} animate__faster`
       case AnimateClassSpeed.Fast:
-        return `${prefix} ${this.className} animate__fast`
+        return `${prefix}${this.className} animate__fast`
       default:
-        return `${prefix} ${this.className}`
+        return `${prefix}${this.className}`
     }
   }
 }

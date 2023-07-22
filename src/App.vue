@@ -2,24 +2,12 @@
 
 import MyHeader from '@/components/MyHeader.vue'
 import MyFooter from '@/components/MyFooter.vue'
-import AnimateClass from '@/models/animate-class'
-import AnimateClassSpeed from '@/models/animate-class-speed'
 import OffCanvas from '@/components/OffCanvas.vue'
-import { onMounted, ref, watch } from 'vue'
-import { useRoute, RouteLocationNormalizedLoaded } from 'vue-router'
+import AnimateAppear from '@/components/AnimateAppear.vue'
+import AnimateClassSpeed from '@/models/animate-class-speed'
+import { ref, watch } from 'vue'
 import { useUiSettingsStore } from '@/stores/ui-settings'
-
-const getEnterClass = (route: RouteLocationNormalizedLoaded) => {
-  const animation = route.meta.enterClass as AnimateClass
-    ?? new AnimateClass('animate__zoomIn', AnimateClassSpeed.Faster)
-  return animation.toString()
-}
-
-const getLeaveClass = (route: RouteLocationNormalizedLoaded) => {
-  const animation = route.meta.leaveClass as AnimateClass
-    ?? new AnimateClass('animate__fadeOutUp', AnimateClassSpeed.Faster)
-  return animation.toString()
-}
+import { useRoute } from 'vue-router'
 
 const offCanvasExpanded = ref(false)
 watch(useRoute(), () => {
@@ -27,8 +15,6 @@ watch(useRoute(), () => {
 })
 
 const uiSettings = useUiSettingsStore()
-const headerTransition = new AnimateClass('animate__fadeInDown', AnimateClassSpeed.Faster)
-const footerTransition = new AnimateClass('animate__fadeInUp', AnimateClassSpeed.Faster)
 
 </script>
 
@@ -37,24 +23,17 @@ const footerTransition = new AnimateClass('animate__fadeInUp', AnimateClassSpeed
 
     <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
 
-    <Transition appear :enter-active-class="headerTransition.toString()">
+    <AnimateAppear animation="fadeInDown" :speed="AnimateClassSpeed.Faster">
       <MyHeader @show-off-canvas="offCanvasExpanded = true" />
-    </Transition>
+    </AnimateAppear>
 
     <main>
-      <RouterView v-slot="{ Component, route }">
-        <Transition
-          mode="out-in"
-          :enter-active-class="getEnterClass(route)"
-          :leave-active-class="getLeaveClass(route)">
-          <component :is="Component" />
-        </Transition>
-      </RouterView>
+      <RouterView />
     </main>
 
-    <Transition appear :enter-active-class="footerTransition.toString()">
+    <AnimateAppear animation="fadeInUp" :speed="AnimateClassSpeed.Faster">
       <MyFooter />
-    </Transition>
+    </AnimateAppear>
     
   </div>
 </template>
