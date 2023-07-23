@@ -3,6 +3,7 @@
 import AnimateAppear from '@/components/AnimateAppear.vue'
 import { ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import PerspectiveHover from '@/components/PerspectiveHover.vue';
 
 const bounceAnglesDown = ref(false)
 
@@ -12,7 +13,9 @@ const bounceAnglesDown = ref(false)
   <div class="nd-about" @scroll="() => console.log('scrolled')">
 
     <AnimateAppear animation="fadeInDown">
-      <img src="../assets/my-pic.jpeg" />
+      <PerspectiveHover>
+        <img src="../assets/my-pic.jpeg" />
+      </PerspectiveHover>
     </AnimateAppear>
     <AnimateAppear animation="fadeInUp">
       <h1>About Me</h1>
