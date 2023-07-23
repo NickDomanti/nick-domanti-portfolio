@@ -6,7 +6,7 @@ import { ref } from 'vue'
 import { usePlayAnimate } from '@/composables/play-animate'
 
 const h1 = ref<HTMLElement>()
-const animateH1 = () => usePlayAnimate(h1.value!, new AnimateClass('jello'), '100ms')
+const animateH1 = () => usePlayAnimate(h1.value!, new AnimateClass('tada'), '100ms')
 
 </script>
 

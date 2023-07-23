@@ -15,7 +15,7 @@ withDefaults(defineProps<Props>(), {
 })
 
 defineEmits<{
-  (event: 'after-appear', el: Element): void
+  (event: 'after-appear', el: HTMLElement): void
 }>()
 
 </script>

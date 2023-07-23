@@ -3,29 +3,36 @@ import AnimateClassSpeed from './animate-class-speed'
 export default class AnimateClass {
   public constructor(
     public animation?: string,
-    public speed: AnimateClassSpeed = AnimateClassSpeed.Normal) {
+    public speed = AnimateClassSpeed.Normal,
+    public infinite = false) {
   }
 
-  public toString() {
-    if (this.animation == null) return ''
+  public getClasses() {
+    if (this.animation == null) return []
 
-    let ret = `animate__animated animate__${this.animation}`
+    const ret = ['animate__animated', 'animate__' + this.animation]
 
     switch (this.speed) {
       case AnimateClassSpeed.Slower:
-        ret += ' animate__slower'
+        ret.push('animate__slower')
         break
       case AnimateClassSpeed.Slow:
-        ret += ' animate__slow'
+        ret.push('animate__slow')
         break
       case AnimateClassSpeed.Fast:
-        ret += ' animate__fast'
+        ret.push('animate__fast')
         break
       case AnimateClassSpeed.Faster:
-        ret += ' animate__faster'
+        ret.push('animate__faster')
         break
     }
 
+    if (this.infinite) ret.push('animate__infinite')
+
     return ret
+  }
+
+  public toString() {
+    return this.getClasses().join(' ')
   }
 }
