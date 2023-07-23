@@ -6,12 +6,14 @@ import AnimateClassSpeed from '@/models/animate-class-speed'
 interface Props {
   animation: string,
   speed?: AnimateClassSpeed,
-  delay?: string
+  delay?: string,
+  disabled?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
   speed: AnimateClassSpeed.Normal,
-  delay: '0s'
+  delay: '0s',
+  disabled: false
 })
 
 defineEmits<{
@@ -21,14 +23,19 @@ defineEmits<{
 </script>
 
 <template>
-  <Transition
-    appear
-    :enter-active-class="new AnimateClass(animation, speed).toString()"
-    @after-appear="el => $emit('after-appear', el)">
-    <div class="nd-appear-animated">
-      <slot></slot>
-    </div>
-  </Transition>
+  <template v-if="disabled">
+    <slot></slot>
+  </template>
+  <template v-else>
+    <Transition
+      appear
+      :enter-active-class="new AnimateClass(animation, speed).toString()"
+      @after-appear="el => $emit('after-appear', el)">
+      <div class="nd-appear-animated">
+        <slot></slot>
+      </div>
+    </Transition>
+  </template>
 </template>
 
 <style scoped>
