@@ -4,10 +4,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/HomeView.vue'),
-    meta: {
-      hideNavigation: true
-    }
+    component: () => import('../views/HomeView.vue')
   },
   {
     path: '/about',
