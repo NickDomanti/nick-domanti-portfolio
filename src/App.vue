@@ -16,6 +16,7 @@ watch(useRoute(), () => {
 })
 
 const uiSettings = useUiSettingsStore()
+const leaveAnimateClass = new AnimateClass('fadeOut', AnimateClassSpeed.Faster)
 
 </script>
 
@@ -30,7 +31,7 @@ const uiSettings = useUiSettingsStore()
 
     <main>
       <RouterView v-slot="{ Component }">
-        <Transition mode="out-in" :leave-active-class="new AnimateClass('fadeOut', AnimateClassSpeed.Faster).toString()">
+        <Transition mode="out-in" :leave-active-class="leaveAnimateClass.toString()">
           <component :is="Component" />
         </Transition>
       </RouterView>

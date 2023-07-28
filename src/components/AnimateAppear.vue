@@ -10,7 +10,7 @@ interface Props {
   disabled?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   speed: AnimateClassSpeed.Normal,
   delay: '0s',
   disabled: false
@@ -19,6 +19,8 @@ withDefaults(defineProps<Props>(), {
 defineEmits<{
   (event: 'after-appear', el: HTMLElement): void
 }>()
+
+const animateClass = new AnimateClass(props.animation, props.speed)
 
 </script>
 
@@ -29,7 +31,7 @@ defineEmits<{
   <template v-else>
     <Transition
       appear
-      :enter-active-class="new AnimateClass(animation, speed).toString()"
+      :enter-active-class="animateClass.toString()"
       @after-appear="el => $emit('after-appear', el)">
       <div class="nd-appear-animated">
         <slot></slot>
