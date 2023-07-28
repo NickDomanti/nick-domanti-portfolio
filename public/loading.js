@@ -3,6 +3,9 @@ let theme = localStorage.getItem('nd-uiSettings-theme') || 'auto'
 if (theme === 'auto') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 document.querySelector('.nd-loading').classList.add('nd-loading--' + theme)
 
+// Load my picture
+new Image().src = '/img/my-pic.jpeg'
+
 // Handle loading smoothly
 function handleAnimationIteration() {
   if (!window.VUE_IS_READY) return

@@ -15,9 +15,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/AboutView.vue')
   },
   {
-    path: '/cv',
-    name: 'Curriculum Vitae',
-    component: () => import('../views/CurriculumView.vue')
+    path: '/work',
+    name: 'Work',
+    component: () => import('../views/MyWork.vue')
   },
   {
     path: '/:catchall(.*)',

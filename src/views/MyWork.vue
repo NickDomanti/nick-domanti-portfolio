@@ -1,13 +1,13 @@
 <template>
-  <div class="nd-cv">
+  <div class="nd-work">
 
-    <h1>Curriculum Vitae</h1>
+    <h1>My Work</h1>
 
   </div>
 </template>
 
 <style scoped lang="scss">
-.nd-cv {
+.nd-work {
   text-align: center;
 }
 </style>

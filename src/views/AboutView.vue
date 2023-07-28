@@ -32,7 +32,7 @@ import PerspectiveHover from '@/components/PerspectiveHover.vue'
       </p>
       <p>
         <FontAwesomeIcon :icon="['fas', 'angles-right']" />
-        <RouterLink to="/cv" class="nd-cv-link">Check out my resume</RouterLink>
+        <a href="/CV Nicolò Domanti 2023-06.pdf" class="nd-cv-link" target="_blank">Check out my resume</a>
       </p>
     </AnimateAppear>
     
@@ -50,9 +50,14 @@ import PerspectiveHover from '@/components/PerspectiveHover.vue'
   }
 
   img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 10px;
+
+    @media (min-width: $screen-md) {
+      width: 200px;
+      height: 200px;
+    }
   }
 
   h1 {
