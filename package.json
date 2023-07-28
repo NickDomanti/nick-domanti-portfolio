@@ -14,7 +14,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@vueuse/core": "^10.2.1",
-    "@vueuse/motion": "^2.0.0",
     "core-js": "^3.8.3",
     "motion": "^10.16.2",
     "pinia": "^2.1.4",

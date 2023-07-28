@@ -43,7 +43,7 @@ const uiSettings = useUiSettingsStore()
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import '@/assets/styles/vars';
 
 .nd-page {
@@ -73,6 +73,10 @@ const uiSettings = useUiSettingsStore()
 
     @media (min-width: $screen-md) {
       padding: 1rem 5rem;
+    }
+
+    a {
+      color: var(--clr);
     }
   }
 }
