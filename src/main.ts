@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { MotionPlugin } from '@vueuse/motion'
 import App from '@/App.vue'
 import router from '@/router'
 import pinia from '@/setup/pinia'
@@ -19,5 +20,6 @@ document.addEventListener('nd-start-vue-app', () => {
     .component('FontAwesomeIcon', FontAwesomeIcon)
     .use(pinia)
     .use(router)
+    .use(MotionPlugin)
     .mount('#app')
 })

@@ -17,10 +17,10 @@ watch(step, () => {
 </script>
 
 <template>
-  <Transition>
+  <Transition name="slide" :duration="5000">
     <div class="nd-about" :key="step">
 
-      <div v-if="step === 1">
+      <div class="nd-about-1" v-if="step === 1">
         <AnimateAppear animation="fadeInDown" :disabled="disableAppearAnimations">
           <PerspectiveHover>
             <img src="/img/my-pic.jpeg" />
@@ -38,7 +38,7 @@ watch(step, () => {
         </AnimateAppear>
       </div>
   
-      <div v-if="step === 2">
+      <div class="nd-about-2" v-if="step === 2">
         <AnimateAppear animation="fadeInDown" delay="1s" @after-appear="bounceAngles = true">
           <div class="nd-bouncing-wrapper" @click="step = 1">
             <div class="nd-bouncing" :class="{ 'nd-bouncing--up': bounceAngles }">
