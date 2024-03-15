@@ -8,7 +8,7 @@ export default class AnimateClass {
   ) {}
 
   public getClasses() {
-    if (this.animation == null) return []
+    if (this.animation === null) return []
 
     const ret = ['animate__animated', 'animate__' + this.animation]
 
