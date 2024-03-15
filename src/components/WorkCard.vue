@@ -11,6 +11,7 @@ defineProps<Work>()
     :href="link"
     :target="link ? '_blank' : null"
     class="nd-card"
+    :class="{ ongoing: to === 'ongoing' }"
   >
     <p class="nd-card-title">{{ title }}</p>
     <p class="nd-card-period-company">{{ from }} - {{ to }} | {{ company }}</p>
@@ -54,6 +55,10 @@ defineProps<Work>()
     top: 0;
     left: 0;
     translate: -50% -50%;
+  }
+
+  &.ongoing {
+    border-color: gold;
   }
 }
 </style>
