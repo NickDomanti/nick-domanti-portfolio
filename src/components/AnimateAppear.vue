@@ -1,12 +1,11 @@
 <script setup lang="ts">
-
 import AnimateClass from '@/models/animate-class'
 import AnimateClassSpeed from '@/models/animate-class-speed'
 
 interface Props {
-  animation: string,
-  speed?: AnimateClassSpeed,
-  delay?: string,
+  animation: string
+  speed?: AnimateClassSpeed
+  delay?: string
   disabled?: boolean
 }
 
@@ -21,7 +20,6 @@ defineEmits<{
 }>()
 
 const animateClass = new AnimateClass(props.animation, props.speed)
-
 </script>
 
 <template>
@@ -32,7 +30,8 @@ const animateClass = new AnimateClass(props.animation, props.speed)
     <Transition
       appear
       :enter-active-class="animateClass.toString()"
-      @after-appear="el => $emit('after-appear', el)">
+      @after-appear="(el) => $emit('after-appear', el as HTMLElement)"
+    >
       <div class="nd-appear-animated">
         <slot></slot>
       </div>

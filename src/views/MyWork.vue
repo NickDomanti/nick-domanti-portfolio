@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import Work from '@/models/work'
 import WorkCard from '@/components/WorkCard.vue'
 import PerspectiveHover from '@/components/PerspectiveHover.vue'
@@ -10,10 +9,10 @@ const works: Work[] = [
     title: 'ASP.NET Core Fullstack Freelance Dev',
     period: 'Apr 2023 - maintaining',
     company: 'Easy Rider Mallorca',
-    text: 'First experience as freelance developer. I developed\
-      Easy Rider Mallorca\'s website using Umbraco CMS which\
+    text: "First experience as freelance developer. I developed\
+      Easy Rider Mallorca's website using Umbraco CMS which\
       runs on ASP.NET Core MVC, TypeScript, and SASS. I\
-      hosted it through IONOS 1&1 on a VPS with Plesk.',
+      hosted it through IONOS 1&1 on a VPS with Plesk.",
     link: 'https://easyridermallorca.com'
   },
   {
@@ -41,19 +40,22 @@ const works: Work[] = [
     title: 'ASP.NET Core Fullstack Dev',
     period: 'Sep 2020 - Dec 2021',
     company: 'Edilservice, Mercallo',
-    text: 'I worked almost independently on the creation of a\
-      management web app for the company\'s new\
+    text: "I worked almost independently on the creation of a\
+      management web app for the company's new\
       e-commerce site, using ASP.NET Core Razor Pages.\
-      I also worked with Wordpress, PHP and Python.'
+      I also worked with Wordpress, PHP and Python."
   }
 ]
-
 </script>
 
 <template>
   <div class="nd-work">
     <AnimateAppear animation="fadeInUp" class="nd-work-cards">
-      <PerspectiveHover v-for="work in works" :key="work.company" class="nd-work-card-wrapper">
+      <PerspectiveHover
+        v-for="work in works"
+        :key="work.company"
+        class="nd-work-card-wrapper"
+      >
         <WorkCard v-bind="work" />
       </PerspectiveHover>
     </AnimateAppear>
@@ -74,7 +76,7 @@ const works: Work[] = [
       flex-wrap: wrap;
       gap: 2rem;
     }
-    
+
     .nd-work-card-wrapper {
       margin: 2rem 0;
 

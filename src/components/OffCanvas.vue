@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useRoutes } from '@/composables/routes'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -8,13 +7,15 @@ defineProps<{
 }>()
 
 defineEmits(['hideOffCanvas'])
-
 </script>
 
 <template>
-
   <Transition name="fade">
-    <div class="nd-off-canvas-overlay" v-if="expanded" @click="$emit('hideOffCanvas')"></div>
+    <div
+      class="nd-off-canvas-overlay"
+      v-if="expanded"
+      @click="$emit('hideOffCanvas')"
+    ></div>
   </Transition>
 
   <div class="nd-off-canvas" :class="{ 'nd-off-canvas--expanded': expanded }">
@@ -26,30 +27,39 @@ defineEmits(['hideOffCanvas'])
         <FontAwesomeIcon :icon="['fas', 'angles-left']" />
       </div>
     </div>
-    
-    <div class="nd-nav-link-wrapper" v-for="route in useRoutes()" :key="route.path">
-      <RouterLink :to="route.path" class="nd-nav-link">{{ route.name }}</RouterLink>
+
+    <div
+      class="nd-nav-link-wrapper"
+      v-for="route in useRoutes()"
+      :key="route.path"
+    >
+      <RouterLink :to="route.path" class="nd-nav-link">{{
+        route.name
+      }}</RouterLink>
     </div>
-    
+
     <div class="nd-nav-link-wrapper">
-      <a class="nd-nav-link nd-nav-link--icon"
+      <a
+        class="nd-nav-link nd-nav-link--icon"
         href="https://github.com/NickDomanti/nick-domanti-portfolio"
         title="See this website's source code"
-        target="_blank">
+        target="_blank"
+      >
         <FontAwesomeIcon :icon="['fab', 'github']" />
       </a>
     </div>
-    
+
     <div class="nd-nav-link-wrapper">
-      <a class="nd-nav-link nd-nav-link--icon"
+      <a
+        class="nd-nav-link nd-nav-link--icon"
         href="https://www.linkedin.com/in/nicol%C3%B2-domanti-11624b229/"
         title="See my LinkedIn profile"
-        target="_blank">
+        target="_blank"
+      >
         <FontAwesomeIcon :icon="['fab', 'linkedin']" />
       </a>
     </div>
   </div>
-
 </template>
 
 <style scoped lang="scss">
@@ -78,7 +88,7 @@ $transition: 0.3s ease-out;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     img {
       height: 50px;
     }

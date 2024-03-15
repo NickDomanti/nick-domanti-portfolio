@@ -7,7 +7,9 @@ export const useUiSettingsStore = defineStore(storeName, () => {
   const theme = useStorageRef(storeName, 'theme', 'auto')
   const getTheme = () => {
     if (theme.value == 'auto')
-      return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      return matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
     return theme.value
   }
   const switchTheme = () => {

@@ -1,13 +1,10 @@
 <script setup lang="ts">
-
 import AnimateAppear from '@/components/AnimateAppear.vue'
 import PerspectiveHover from '@/components/PerspectiveHover.vue'
-
 </script>
 
 <template>
   <div class="nd-about">
-
     <AnimateAppear animation="fadeInDown">
       <PerspectiveHover>
         <img src="/img/my-pic.jpeg" />
@@ -19,12 +16,8 @@ import PerspectiveHover from '@/components/PerspectiveHover.vue'
         Hi, my name is Nicolò,<br />
         but you can call me Nick.
       </p>
-      <p>
-        I am a Web Developer from Italy.
-      </p>
-      <p>
-        I specialize in .NET and Vue.
-      </p>
+      <p>I am a Web Developer from Italy.</p>
+      <p>I specialize in .NET and Vue.</p>
       <p>
         I am incredibly passionate about coding,<br />
         and as such I love to learn new technologies,<br />
@@ -32,10 +25,14 @@ import PerspectiveHover from '@/components/PerspectiveHover.vue'
       </p>
       <p>
         <FontAwesomeIcon :icon="['fas', 'angles-right']" />
-        <a href="/CV Nicolò Domanti 2023-06.pdf" class="nd-cv-link" target="_blank">Check out my resume</a>
+        <a
+          href="/CV Nicolò Domanti 2023-06.pdf"
+          class="nd-cv-link"
+          target="_blank"
+          >Check out my resume</a
+        >
       </p>
     </AnimateAppear>
-    
   </div>
 </template>
 
@@ -65,7 +62,7 @@ import PerspectiveHover from '@/components/PerspectiveHover.vue'
   }
 
   p {
-    font-size: .95rem;
+    font-size: 0.95rem;
   }
 
   .nd-cv-link {

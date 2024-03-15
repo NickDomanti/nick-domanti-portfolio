@@ -1,15 +1,15 @@
 <script setup lang="ts">
-
 import { useUiSettingsStore } from '@/stores/ui-settings'
 
 const uiSettings = useUiSettingsStore()
-
 </script>
 
 <template>
-  <div class="nd-theme-switcher"
+  <div
+    class="nd-theme-switcher"
     :class="'nd-theme-switcher--' + uiSettings.getTheme()"
-    @click="uiSettings.switchTheme">
+    @click="uiSettings.switchTheme"
+  >
     <div class="nd-theme-switcher-inner"></div>
   </div>
 </template>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import MyHeader from '@/components/MyHeader.vue'
 import MyFooter from '@/components/MyFooter.vue'
 import OffCanvas from '@/components/OffCanvas.vue'
@@ -17,13 +16,14 @@ watch(useRoute(), () => {
 
 const uiSettings = useUiSettingsStore()
 const leaveAnimateClass = new AnimateClass('fadeOut', AnimateClassSpeed.Faster)
-
 </script>
 
 <template>
   <div class="nd-page" :class="'nd-page--' + uiSettings.getTheme()">
-
-    <OffCanvas :expanded="offCanvasExpanded" @hide-off-canvas="offCanvasExpanded = false" />
+    <OffCanvas
+      :expanded="offCanvasExpanded"
+      @hide-off-canvas="offCanvasExpanded = false"
+    />
 
     <AnimateAppear animation="slideInDown" :speed="AnimateClassSpeed.Faster">
       <MyHeader @show-off-canvas="offCanvasExpanded = true" />
@@ -31,7 +31,10 @@ const leaveAnimateClass = new AnimateClass('fadeOut', AnimateClassSpeed.Faster)
 
     <main>
       <RouterView v-slot="{ Component }">
-        <Transition mode="out-in" :leave-active-class="leaveAnimateClass.toString()">
+        <Transition
+          mode="out-in"
+          :leave-active-class="leaveAnimateClass.toString()"
+        >
           <component :is="Component" />
         </Transition>
       </RouterView>
@@ -40,7 +43,6 @@ const leaveAnimateClass = new AnimateClass('fadeOut', AnimateClassSpeed.Faster)
     <AnimateAppear animation="slideInUp" :speed="AnimateClassSpeed.Faster">
       <MyFooter />
     </AnimateAppear>
-    
   </div>
 </template>
 

@@ -1,17 +1,18 @@
 <script setup lang="ts">
-
 import Work from '@/models/work'
 
 defineProps<Work>()
-
 </script>
 
 <template>
-  <component :is="link ? 'a' : 'div'" :href="link" :target="link ? '_blank' : null" class="nd-card">
+  <component
+    :is="link ? 'a' : 'div'"
+    :href="link"
+    :target="link ? '_blank' : null"
+    class="nd-card"
+  >
     <p class="nd-card-title">{{ title }}</p>
-    <p class="nd-card-period-company">
-      {{ period }} | {{ company }}
-    </p>
+    <p class="nd-card-period-company">{{ period }} | {{ company }}</p>
     <p class="nd-card-text">{{ text }}</p>
   </component>
 </template>

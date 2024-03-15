@@ -1,16 +1,13 @@
 <script setup lang="ts">
-
 import { useRoutes } from '@/composables/routes'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import ThemeSwitcher from '@/components/ThemeSwitcher.vue'
 
 defineEmits(['showOffCanvas'])
-
 </script>
 
 <template>
   <header>
-
     <div class="nd-header-left">
       <span class="nd-off-link" @click="$emit('showOffCanvas')">
         <FontAwesomeIcon :icon="['fas', 'bars-staggered']" />
@@ -23,24 +20,33 @@ defineEmits(['showOffCanvas'])
       </RouterLink>
     </div>
 
-    <RouterLink v-for="route in useRoutes()" :key="route.path" :to="route.path" class="nd-nav-link">{{ route.name }}</RouterLink>
-    <a class="nd-nav-link nd-nav-link--icon"
+    <RouterLink
+      v-for="route in useRoutes()"
+      :key="route.path"
+      :to="route.path"
+      class="nd-nav-link"
+      >{{ route.name }}</RouterLink
+    >
+    <a
+      class="nd-nav-link nd-nav-link--icon"
       href="https://github.com/NickDomanti/nick-domanti-portfolio"
       title="See this website's source code"
-      target="_blank">
+      target="_blank"
+    >
       <FontAwesomeIcon :icon="['fab', 'github']" />
     </a>
-    <a class="nd-nav-link nd-nav-link--icon"
+    <a
+      class="nd-nav-link nd-nav-link--icon"
       href="https://www.linkedin.com/in/nicol%C3%B2-domanti-11624b229/"
       title="See my LinkedIn profile"
-      target="_blank">
+      target="_blank"
+    >
       <FontAwesomeIcon :icon="['fab', 'linkedin']" />
     </a>
 
     <div class="nd-header-right">
       <ThemeSwitcher />
     </div>
-
   </header>
 </template>
 
@@ -63,7 +69,7 @@ header {
     height: 50px;
   }
 
-  .nd-off-link {      
+  .nd-off-link {
     @media (min-width: $screen-md) {
       display: none;
     }

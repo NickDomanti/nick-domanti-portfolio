@@ -25,7 +25,8 @@
       pointer-events: none;
     }
 
-    &:hover, &.router-link-exact-active {
+    &:hover,
+    &.router-link-exact-active {
       &::after {
         opacity: 1;
       }

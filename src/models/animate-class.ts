@@ -4,8 +4,8 @@ export default class AnimateClass {
   public constructor(
     public animation?: string,
     public speed = AnimateClassSpeed.Normal,
-    public infinite = false) {
-  }
+    public infinite = false
+  ) {}
 
   public getClasses() {
     if (this.animation == null) return []

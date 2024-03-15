@@ -4,14 +4,12 @@ import AnimateAppear from '@/components/AnimateAppear.vue'
 
 <template>
   <div class="nd-not-found">
-
     <AnimateAppear animation="bounceIn">
       <div>
         <h1>Error 404</h1>
         <p>Page not found</p>
       </div>
     </AnimateAppear>
-    
   </div>
 </template>
 
