@@ -33,7 +33,8 @@ const { works } = storeToRefs(useContentStore())
   .nd-work-cards {
     @media (min-width: $screen-md) {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: row-reverse;
+      flex-wrap: wrap-reverse;
       gap: 2rem;
     }
 
