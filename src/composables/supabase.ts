@@ -11,7 +11,6 @@ export const useSupabase = () => {
     const resp = await supabaseClient.from('texts').select()
 
     if (!resp.data) throw new Error('No data from Supabase')
-    console.log(resp.data)
 
     return resp.data.reduce((acc, curr) => {
       acc[curr.key] = curr.text

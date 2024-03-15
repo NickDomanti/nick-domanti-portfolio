@@ -26,28 +26,31 @@ export type Database = {
       }
       works: {
         Row: {
+          company: string
           description: string
           from: string
           id: number
+          link: string | null
           title: string
           to: string
-          where: string
         }
         Insert: {
+          company: string
           description: string
           from: string
           id?: number
+          link?: string | null
           title: string
           to: string
-          where: string
         }
         Update: {
+          company?: string
           description?: string
           from?: string
           id?: number
+          link?: string | null
           title?: string
           to?: string
-          where?: string
         }
         Relationships: []
       }

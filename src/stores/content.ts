@@ -1,9 +1,7 @@
 import { useSupabase } from '@/composables/supabase'
-import { Database } from '@/types/database'
+import { Work } from '@/types/work'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-
-type Work = Database['public']['Tables']['works']['Row']
 
 export const useContentStore = defineStore('content', () => {
   const texts = ref<Record<string, string>>({})

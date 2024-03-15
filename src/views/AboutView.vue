@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import AnimateAppear from '@/components/AnimateAppear.vue'
 import PerspectiveHover from '@/components/PerspectiveHover.vue'
+import { useContentStore } from '@/stores/content'
+import { storeToRefs } from 'pinia'
+
+const { texts } = storeToRefs(useContentStore())
 </script>
 
 <template>
@@ -11,25 +15,15 @@ import PerspectiveHover from '@/components/PerspectiveHover.vue'
       </PerspectiveHover>
     </AnimateAppear>
     <AnimateAppear animation="fadeInUp">
-      <h1>About Me</h1>
-      <p>
-        Hi, my name is Nicolò,<br />
-        but you can call me Nick.
-      </p>
-      <p>I am a Web Developer from Italy.</p>
-      <p>I specialize in .NET and Vue.</p>
-      <p>
-        I am incredibly passionate about coding,<br />
-        and as such I love to learn new technologies,<br />
-        especially when it comes to .NET and Web Development.
-      </p>
+      <h1>{{ texts['about.title'] }}</h1>
+      <div v-html="texts['about.content']"></div>
       <p>
         <FontAwesomeIcon :icon="['fas', 'angles-right']" />
         <a
           href="/CV Nicolò Domanti 2023-06.pdf"
           class="nd-cv-link"
           target="_blank"
-          >Check out my resume</a
+          >{{ texts['about.resume_cta'] }}</a
         >
       </p>
     </AnimateAppear>

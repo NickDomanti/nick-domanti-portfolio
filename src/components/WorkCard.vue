@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Work from '@/types/work'
+import { Work } from '@/types/work'
 
 defineProps<Work>()
 </script>
@@ -12,8 +12,8 @@ defineProps<Work>()
     class="nd-card"
   >
     <p class="nd-card-title">{{ title }}</p>
-    <p class="nd-card-period-company">{{ period }} | {{ company }}</p>
-    <p class="nd-card-text">{{ text }}</p>
+    <p class="nd-card-period-company">{{ from }} - {{ to }} | {{ company }}</p>
+    <p class="nd-card-text" v-html="description"></p>
   </component>
 </template>
 
