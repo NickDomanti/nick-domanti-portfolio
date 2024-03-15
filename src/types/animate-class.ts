@@ -1,4 +1,4 @@
-import AnimateClassSpeed from '@/models/animate-class-speed'
+import AnimateClassSpeed from '@/types/animate-class-speed'
 
 export default class AnimateClass {
   public constructor(

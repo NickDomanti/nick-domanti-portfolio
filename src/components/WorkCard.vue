@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Work from '@/models/work'
+import Work from '@/types/work'
 
 defineProps<Work>()
 </script>

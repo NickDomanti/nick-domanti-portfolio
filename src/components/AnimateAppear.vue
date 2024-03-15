@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AnimateClass from '@/models/animate-class'
-import AnimateClassSpeed from '@/models/animate-class-speed'
+import AnimateClass from '@/types/animate-class'
+import AnimateClassSpeed from '@/types/animate-class-speed'
 
 interface Props {
   animation: string

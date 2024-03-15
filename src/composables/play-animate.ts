@@ -1,4 +1,4 @@
-import AnimateClass from '@/models/animate-class'
+import AnimateClass from '@/types/animate-class'
 
 export function usePlayAnimate(
   el: HTMLElement,

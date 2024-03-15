@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AnimateAppear from '@/components/AnimateAppear.vue'
-import AnimateClass from '@/models/animate-class'
+import AnimateClass from '@/types/animate-class'
 import { ref } from 'vue'
 import { usePlayAnimate } from '@/composables/play-animate'
 

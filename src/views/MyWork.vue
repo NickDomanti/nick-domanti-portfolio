@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Work from '@/models/work'
+import Work from '@/types/work'
 import WorkCard from '@/components/WorkCard.vue'
 import PerspectiveHover from '@/components/PerspectiveHover.vue'
 import AnimateAppear from '@/components/AnimateAppear.vue'
