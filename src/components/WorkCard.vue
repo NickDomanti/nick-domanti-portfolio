@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Work } from '@/types/work'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 defineProps<Work>()
 </script>
@@ -11,7 +12,14 @@ defineProps<Work>()
     :target="link ? '_blank' : null"
     class="nd-card"
   >
-    <p class="nd-card-title">{{ title }}</p>
+    <p class="nd-card-title">
+      {{ title }}
+      <FontAwesomeIcon
+        v-if="to === 'ongoing'"
+        :icon="['fas', 'star']"
+        class="star"
+      />
+    </p>
     <p class="nd-card-period-company">{{ from }} - {{ to }} | {{ company }}</p>
     <p class="nd-card-text" v-html="description"></p>
   </component>
@@ -37,6 +45,10 @@ defineProps<Work>()
 
   .nd-card-period-company {
     font-size: 0.9rem;
+  }
+
+  .star {
+    color: gold;
   }
 }
 </style>

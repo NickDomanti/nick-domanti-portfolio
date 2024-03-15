@@ -2,6 +2,7 @@
 import AnimateAppear from '@/components/AnimateAppear.vue'
 import PerspectiveHover from '@/components/PerspectiveHover.vue'
 import { useContentStore } from '@/stores/content'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { storeToRefs } from 'pinia'
 
 const { texts } = storeToRefs(useContentStore())
