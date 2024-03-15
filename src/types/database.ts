@@ -12,15 +12,15 @@ export type Database = {
       texts: {
         Row: {
           key: string
-          text: string | null
+          text: string
         }
         Insert: {
           key: string
-          text?: string | null
+          text: string
         }
         Update: {
           key?: string
-          text?: string | null
+          text?: string
         }
         Relationships: []
       }
