@@ -1,6 +1,13 @@
+<script setup lang="ts">
+import { useContentStore } from '@/stores/content'
+import { storeToRefs } from 'pinia'
+
+const { texts } = storeToRefs(useContentStore())
+</script>
+
 <template>
   <footer>
-    <small>Designed & Coded by Nick Domanti &copy; 2023</small>
+    <small v-html="texts['footer']"></small>
   </footer>
 </template>
 
