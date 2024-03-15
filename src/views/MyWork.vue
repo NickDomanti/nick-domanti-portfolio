@@ -31,18 +31,17 @@ const { works } = storeToRefs(useContentStore())
   }
 
   .nd-work-cards {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+
     @media (min-width: $screen-md) {
-      display: flex;
       flex-direction: row-reverse;
       flex-wrap: wrap-reverse;
-      gap: 2rem;
     }
 
     .nd-work-card-wrapper {
-      margin: 2rem 0;
-
       @media (min-width: $screen-md) {
-        margin: 0;
         flex: calc(50% - 2rem);
       }
 
