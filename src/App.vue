@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import MyHeader from '@/components/MyHeader.vue'
-import MyFooter from '@/components/MyFooter.vue'
-import OffCanvas from '@/components/OffCanvas.vue'
 import AnimateAppear from '@/components/AnimateAppear.vue'
+import MyFooter from '@/components/MyFooter.vue'
+import MyHeader from '@/components/MyHeader.vue'
+import OffCanvas from '@/components/OffCanvas.vue'
+import { useContentStore } from '@/stores/content'
+import { useUiSettingsStore } from '@/stores/ui-settings'
 import AnimateClass from '@/types/animate-class'
 import AnimateClassSpeed from '@/types/animate-class-speed'
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { useUiSettingsStore } from '@/stores/ui-settings'
 
 const offCanvasExpanded = ref(false)
 watch(useRoute(), () => {
@@ -16,6 +17,11 @@ watch(useRoute(), () => {
 
 const uiSettings = useUiSettingsStore()
 const leaveAnimateClass = new AnimateClass('fadeOut', AnimateClassSpeed.Faster)
+
+const { populateContent } = useContentStore()
+onMounted(async () => {
+  await populateContent()
+})
 </script>
 
 <template>
