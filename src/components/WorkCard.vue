@@ -12,16 +12,16 @@ defineProps<Work>()
     :target="link ? '_blank' : null"
     class="nd-card"
   >
-    <p class="nd-card-title">
-      {{ title }}
-      <FontAwesomeIcon
-        v-if="to === 'ongoing'"
-        :icon="['fas', 'star']"
-        class="star"
-      />
-    </p>
+    <p class="nd-card-title">{{ title }}</p>
     <p class="nd-card-period-company">{{ from }} - {{ to }} | {{ company }}</p>
     <p class="nd-card-text" v-html="description"></p>
+
+    <FontAwesomeIcon
+      v-if="to === 'ongoing'"
+      :icon="['fas', 'star']"
+      class="star"
+      size="xl"
+    />
   </component>
 </template>
 
@@ -33,6 +33,7 @@ defineProps<Work>()
   border: 1px solid grey;
   border-radius: 5px;
   padding: 0.5rem 1rem;
+  position: relative;
 
   p {
     margin: 0.75rem 0;
@@ -49,6 +50,10 @@ defineProps<Work>()
 
   .star {
     color: gold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: -50% -50%;
   }
 }
 </style>
