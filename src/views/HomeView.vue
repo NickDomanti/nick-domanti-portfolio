@@ -2,7 +2,7 @@
 import AnimateAppear from '@/components/AnimateAppear.vue'
 import { usePlayAnimate } from '@/composables/play-animate'
 import { useContentStore } from '@/stores/content'
-import AnimateClass from '@/types/animate-class'
+import { AnimateClass } from '@/types/animate-class'
 import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 

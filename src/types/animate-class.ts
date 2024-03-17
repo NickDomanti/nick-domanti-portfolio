@@ -1,6 +1,6 @@
-import AnimateClassSpeed from '@/types/animate-class-speed'
+import { AnimateClassSpeed } from '@/types/animate-class-speed'
 
-export default class AnimateClass {
+export class AnimateClass {
   public constructor(
     public animation?: string,
     public speed = AnimateClassSpeed.Normal,
