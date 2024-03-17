@@ -19,7 +19,7 @@ export const useSupabase = () => {
   }
 
   const getWorks = async () => {
-    const resp = await supabaseClient.from('works').select()
+    const resp = await supabaseClient.from('works').select().order('id')
 
     if (!resp.data) throw new Error('No data from Supabase')
 
