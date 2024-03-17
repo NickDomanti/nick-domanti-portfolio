@@ -13,7 +13,7 @@ const { works } = storeToRefs(useContentStore())
     <AnimateAppear animation="fadeInUp" class="nd-work-cards">
       <PerspectiveHover
         v-for="work in works"
-        :key="work.company"
+        :key="work.id"
         class="nd-work-card-wrapper"
       >
         <WorkCard v-bind="work" />

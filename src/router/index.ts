@@ -17,6 +17,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/MyWork.vue')
   },
   {
+    path: '/projects',
+    name: 'Projects',
+    component: () => import('@/views/MyProjects.vue')
+  },
+  {
     path: '/:catchall(.*)',
     name: 'Not Found',
     component: () => import('@/views/NotFoundView.vue'),

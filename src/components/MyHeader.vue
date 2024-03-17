@@ -25,8 +25,9 @@ defineEmits(['showOffCanvas'])
       :key="route.path"
       :to="route.path"
       class="nd-nav-link"
-      >{{ route.name }}</RouterLink
     >
+      {{ route.name }}
+    </RouterLink>
     <a
       class="nd-nav-link nd-nav-link--icon"
       href="https://github.com/NickDomanti/nick-domanti-portfolio"

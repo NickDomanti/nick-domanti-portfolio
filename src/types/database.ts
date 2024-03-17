@@ -9,6 +9,30 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      projects: {
+        Row: {
+          description: string
+          id: number
+          index: number
+          link: string | null
+          title: string
+        }
+        Insert: {
+          description: string
+          id?: number
+          index?: number
+          link?: string | null
+          title: string
+        }
+        Update: {
+          description?: string
+          id?: number
+          index?: number
+          link?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
       texts: {
         Row: {
           key: string
@@ -30,6 +54,7 @@ export type Database = {
           description: string
           from: string
           id: number
+          index: number
           link: string | null
           title: string
           to: string
@@ -39,6 +64,7 @@ export type Database = {
           description: string
           from: string
           id?: number
+          index?: number
           link?: string | null
           title: string
           to: string
@@ -48,6 +74,7 @@ export type Database = {
           description?: string
           from?: string
           id?: number
+          index?: number
           link?: string | null
           title?: string
           to?: string

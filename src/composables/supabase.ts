@@ -1,4 +1,5 @@
 import { Database } from '@/types/database'
+import { Project } from '@/types/project'
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseClient = createClient<Database>(
@@ -19,12 +20,29 @@ export const useSupabase = () => {
   }
 
   const getWorks = async () => {
-    const resp = await supabaseClient.from('works').select().order('id')
+    const resp = await supabaseClient
+      .from('works')
+      .select()
+      .order('index', { ascending: false })
 
     if (!resp.data) throw new Error('No data from Supabase')
 
     return resp.data
   }
 
-  return { supabaseClient, getTexts, getWorks }
+  const getProjects = async () => {
+    const resp = await supabaseClient.from('projects').select().order('index')
+
+    if (!resp.data) throw new Error('No data from Supabase')
+
+    return resp.data.map<Project>((p) => ({
+      ...p,
+      thumbnailUrl: supabaseClient.storage
+        .from('project')
+        .getPublicUrl(p.title.toLowerCase().replaceAll(' ', '-') + '.png').data
+        .publicUrl
+    }))
+  }
+
+  return { supabaseClient, getTexts, getWorks, getProjects }
 }
