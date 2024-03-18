@@ -59,7 +59,7 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: 100svh;
   color: var(--clr);
   background-color: var(--clr-bg);
 
