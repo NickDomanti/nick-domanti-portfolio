@@ -18,9 +18,11 @@ watch(useRoute(), () => {
 const uiSettings = useUiSettingsStore()
 const leaveAnimateClass = new AnimateClass('fadeOut', AnimateClassSpeed.Faster)
 
+const contentAvailable = ref(false)
 const { populateContent } = useContentStore()
 onMounted(async () => {
   await populateContent()
+  contentAvailable.value = true
 })
 </script>
 
@@ -41,7 +43,7 @@ onMounted(async () => {
           mode="out-in"
           :leave-active-class="leaveAnimateClass.toString()"
         >
-          <component :is="Component" />
+          <component v-if="contentAvailable" :is="Component" />
         </Transition>
       </RouterView>
     </main>
