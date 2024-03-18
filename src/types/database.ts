@@ -15,6 +15,7 @@ export type Database = {
           id: number
           index: number
           link: string | null
+          thumbnailUrl: string | null
           title: string
         }
         Insert: {
@@ -22,6 +23,7 @@ export type Database = {
           id?: number
           index?: number
           link?: string | null
+          thumbnailUrl?: string | null
           title: string
         }
         Update: {
@@ -29,6 +31,7 @@ export type Database = {
           id?: number
           index?: number
           link?: string | null
+          thumbnailUrl?: string | null
           title?: string
         }
         Relationships: []

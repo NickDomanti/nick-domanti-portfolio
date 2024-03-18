@@ -4,6 +4,7 @@ import {
   faAnglesLeft,
   faAnglesRight,
   faBarsStaggered,
+  faSquareArrowUpRight,
   faStar
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,5 +14,6 @@ library.add(
   faAnglesRight,
   faAnglesLeft,
   faBarsStaggered,
+  faSquareArrowUpRight,
   faStar
 )

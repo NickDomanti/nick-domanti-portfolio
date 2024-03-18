@@ -6,7 +6,6 @@ import { useContentStore } from '@/stores/content'
 import { storeToRefs } from 'pinia'
 
 const { projects } = storeToRefs(useContentStore())
-console.log(projects.value)
 </script>
 
 <template>

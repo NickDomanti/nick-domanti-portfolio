@@ -23,6 +23,13 @@ defineProps<Work>()
       class="star"
       size="xl"
     />
+
+    <FontAwesomeIcon
+      v-if="link"
+      :icon="['fas', 'square-arrow-up-right']"
+      class="pointer-icon"
+      size="xl"
+    />
   </component>
 </template>
 
@@ -59,6 +66,15 @@ defineProps<Work>()
 
   &.ongoing {
     border-color: gold;
+  }
+
+  .pointer-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    translate: 30% 30%;
+    color: var(--clr);
+    background-color: var(--clr-bg);
   }
 }
 </style>

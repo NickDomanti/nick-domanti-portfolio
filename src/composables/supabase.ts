@@ -35,13 +35,7 @@ export const useSupabase = () => {
 
     if (!resp.data) throw new Error('No data from Supabase')
 
-    return resp.data.map<Project>((p) => ({
-      ...p,
-      thumbnailUrl: supabaseClient.storage
-        .from('project')
-        .getPublicUrl(p.title.toLowerCase().replaceAll(' ', '-') + '.png').data
-        .publicUrl
-    }))
+    return resp.data
   }
 
   return { supabaseClient, getTexts, getWorks, getProjects }
