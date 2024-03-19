@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
 import { useStorageRef } from '@/composables/storage-ref'
+import { defineStore } from 'pinia'
 
 const storeName = 'uiSettings'
 

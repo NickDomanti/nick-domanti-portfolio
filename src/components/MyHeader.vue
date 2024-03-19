@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import ThemeSwitcher from '@/components/ThemeSwitcher.vue'
 import { useRoutes } from '@/composables/routes'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import ThemeSwitcher from '@/components/ThemeSwitcher.vue'
 
 defineEmits(['showOffCanvas'])
 </script>

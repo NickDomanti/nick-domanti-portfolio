@@ -2,28 +2,18 @@
 import { Project } from '@/types/project'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-const props = defineProps<Project>()
+defineProps<Project>()
 </script>
 
 <template>
-  <component
-    :is="link ? 'a' : 'div'"
-    :href="link"
-    :target="link ? '_blank' : null"
-    class="nd-card"
-  >
+  <component :is="link ? 'a' : 'div'" :href="link" :target="link ? '_blank' : null" class="nd-card">
     <img v-if="thumbnailUrl" :src="thumbnailUrl" />
     <div>
       <p class="nd-card-title">{{ title }}</p>
       <p class="nd-card-text" v-html="description"></p>
     </div>
 
-    <FontAwesomeIcon
-      v-if="link"
-      :icon="['fas', 'square-arrow-up-right']"
-      class="pointer-icon"
-      size="xl"
-    />
+    <FontAwesomeIcon v-if="link" :icon="['fas', 'square-arrow-up-right']" class="pointer-icon" size="xl" />
   </component>
 </template>
 
@@ -45,7 +35,7 @@ const props = defineProps<Project>()
     border-radius: 5px;
   }
 
-  & > div {
+  &>div {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

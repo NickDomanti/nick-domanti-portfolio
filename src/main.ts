@@ -1,10 +1,10 @@
-import '@/setup/font-awesome'
-import '@/assets/styles/styles.scss'
 import App from '@/App.vue'
+import '@/assets/styles/styles.scss'
 import router from '@/router'
+import '@/setup/font-awesome'
 import pinia from '@/setup/pinia'
-import { createApp } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { createApp } from 'vue'
 
 declare global {
   interface Window {
