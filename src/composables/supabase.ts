@@ -35,6 +35,11 @@ export const useSupabase = () => {
 
     if (!resp.data) throw new Error('No data from Supabase')
 
+    resp.data.forEach((p) => {
+      // pre-load all thumbnails
+      if (p.thumbnailUrl) new Image().src = p.thumbnailUrl
+    })
+
     return resp.data
   }
 
