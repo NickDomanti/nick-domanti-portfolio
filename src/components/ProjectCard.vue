@@ -7,7 +7,7 @@ defineProps<Project>()
 
 <template>
   <component :is="link ? 'a' : 'div'" :href="link" :target="link ? '_blank' : null" class="nd-card">
-    <img v-if="thumbnailUrl" :src="thumbnailUrl" />
+    <img v-if="thumbnail_url" :src="thumbnail_url" />
     <div>
       <p class="nd-card-title">{{ title }}</p>
       <p class="nd-card-text" v-html="description"></p>

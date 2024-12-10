@@ -36,7 +36,7 @@ export const useSupabase = () => {
 
     resp.data.forEach((p) => {
       // pre-load all thumbnails
-      if (p.thumbnailUrl) new Image().src = p.thumbnailUrl
+      if (p.thumbnail_url) new Image().src = p.thumbnail_url
     })
 
     return resp.data
